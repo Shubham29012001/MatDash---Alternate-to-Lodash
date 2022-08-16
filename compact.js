@@ -17,9 +17,7 @@ function compact(array) {
     let resultArray = [];
 
     for (const falseValues of array) {
-      if (falseValues) {
-        resultArray.push(falseValues);
-      }
+      falseValues ? resultArray.push(falseValues) : 0;
     }
 
     return resultArray;
