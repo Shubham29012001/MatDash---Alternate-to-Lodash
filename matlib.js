@@ -1,5 +1,5 @@
 import compact from "./compact.js";
-import difference from "./difference";
+import difference from "./difference.js";
 
 import newChain, { makechain } from "./makechain.js";
 
