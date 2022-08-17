@@ -6,6 +6,8 @@ import pick from "./pick.js";
 import omit from "./omit.js";
 import get from "./get.js";
 import invoke from "./invoke.js";
+// import merge from "./merge.js";
+import indexof from "./indexof.js";
 
 import newChain, { makechain } from "./makechain.js";
 
@@ -18,6 +20,8 @@ const _ = {
   omit: omit,
   get: get,
   invoke: invoke,
+  // merge: merge,
+  indexof: indexof,
 };
 
 export default _;

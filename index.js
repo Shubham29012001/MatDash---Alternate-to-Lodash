@@ -12,5 +12,5 @@ var object = { a: [{ b: { c: 3 } }] };
 
 var object = { a: [{ b: { c: [1, 2, 3, 4] } }] };
 
-console.log(_.invoke(object, "a[0].b.c.slice", 1, 3));
+console.log(_.indexof(["atul", 2, 1, "shubham"], "shubham", -1));
 // => [2, 3]
