@@ -5,6 +5,7 @@ import without from "./without.js";
 import pick from "./pick.js";
 import omit from "./omit.js";
 import get from "./get.js";
+import invoke from "./invoke.js";
 
 import newChain, { makechain } from "./makechain.js";
 
@@ -16,6 +17,7 @@ const _ = {
   pick: pick,
   omit: omit,
   get: get,
+  invoke: invoke,
 };
 
 export default _;

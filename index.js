@@ -10,4 +10,7 @@ var object = { a: [{ b: { c: 3 } }] };
 // _.get(object, ["a", "0", "b", "c"]);
 // => 3
 
-_.get(arrayExample, "a.b.c", "default");
+var object = { a: [{ b: { c: [1, 2, 3, 4] } }] };
+
+console.log(_.invoke(object, "a[0].b.c.slice", 1, 3));
+// => [2, 3]
