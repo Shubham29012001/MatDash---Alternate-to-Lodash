@@ -2,13 +2,12 @@ import _ from "./matlib.js";
 
 let arrayExample = [1, 2, 3, 4, NaN, false, 0, 100, -9];
 
-let objectExample = {
-  a: 1,
-  b: 2,
-  c: 3,
-  d: 0,
-  e: NaN,
-  f: false,
-};
+var object = { a: [{ b: { c: 3 } }] };
 
-console.log(_.pick(objectExample, "e", "f"));
+// _.get({ object }, "a[0].b.c");
+// // => 3
+
+// _.get(object, ["a", "0", "b", "c"]);
+// => 3
+
+_.get(arrayExample, "a.b.c", "default");
