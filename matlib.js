@@ -10,6 +10,7 @@ import merge from "./merge.js";
 import indexof from "./indexof.js";
 // import includes from "./includes.js";
 import findlast from "./findLast.js";
+import some from "./some.js";
 
 import newChain, { makechain } from "./makechain.js";
 
@@ -26,6 +27,7 @@ const _ = {
   indexof: indexof,
   // includes: includes,
   findlast: findlast,
+  some: some,
 };
 
 export default _;
