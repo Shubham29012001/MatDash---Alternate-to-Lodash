@@ -10,5 +10,5 @@ var users = [
 ];
 
 // The `_.matchesProperty` iteratee shorthand.
-console.log(_.some(users, ["active", false]));
+console.log(_.includes({ a: 1, b: 2, c: 3 }, 1, 0));
 // => true

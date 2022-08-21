@@ -8,9 +8,10 @@ import get from "./get.js";
 import invoke from "./invoke.js";
 import merge from "./merge.js";
 import indexof from "./indexof.js";
-// import includes from "./includes.js";
+import includes from "./includes.js";
 import findlast from "./findLast.js";
 import some from "./some.js";
+import partition from "./partition.js";
 
 import newChain, { makechain } from "./makechain.js";
 
@@ -25,9 +26,10 @@ const _ = {
   invoke: invoke,
   merge: merge,
   indexof: indexof,
-  // includes: includes,
+  includes: includes,
   findlast: findlast,
   some: some,
+  partition: partition,
 };
 
 export default _;
