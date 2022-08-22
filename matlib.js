@@ -12,6 +12,7 @@ import includes from "./includes.js";
 import findlast from "./findLast.js";
 import some from "./some.js";
 import partition from "./partition.js";
+import groupby from "./groupby.js";
 
 import newChain, { makechain } from "./makechain.js";
 
@@ -30,6 +31,7 @@ const _ = {
   findlast: findlast,
   some: some,
   partition: partition,
+  groupby: groupby,
 };
 
 export default _;
