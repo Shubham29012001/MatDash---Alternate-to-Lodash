@@ -3,7 +3,7 @@
  * @since 0.1.0
  * @category Object
  * @param {Object} takes object parameter
- * @param {Number} [values] values to be exclude
+ * @param {Keys} [values] keys to be include
  * @returns {Object} Returns a new object with choosen keys
  * @example
  *
