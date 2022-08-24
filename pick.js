@@ -17,9 +17,11 @@ function pick(Obj, ...keys) {
   if (typeof Obj === "object") {
     let newObject = {};
     for (const arrayKeys of keys) {
-      Obj.hasOwnProperty(arrayKeys)
-        ? (newObject[arrayKeys] = Obj[arrayKeys])
-        : 0;
+      for (const innerArrayKeys of arrayKeys) {
+        Obj.hasOwnProperty(innerArrayKeys)
+          ? (newObject[innerArrayKeys] = Obj[innerArrayKeys])
+          : 0;
+      }
     }
     return newObject;
   } else {

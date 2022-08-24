@@ -18,8 +18,10 @@ function union(firstArgument, secondArgument) {
     let completeArray = [...firstArgument, ...secondArgument];
     let uniqueArray = [...new Set(completeArray)];
     return uniqueArray;
+  } else if (!Array.isArray(secondArgument) && Array.isArray(firstArgument)) {
+    return firstArgument;
   } else {
-    console.error("Both Arguments Must be Array");
+    return [];
   }
 }
 

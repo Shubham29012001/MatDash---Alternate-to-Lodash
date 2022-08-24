@@ -21,17 +21,21 @@ function includes(collection, values, fromIndex) {
   if (Array.isArray(collection) && typeof collection == "object") {
     fromIndex < 0 ? (fromIndex = collection.length + fromIndex) : 0;
 
-    for (let element of collection) {
-      if (typeof element == "object" && !Array.isArray(element)) {
-        let objectKeys = Object.keys(element);
-        for (let iteration of objectKeys) {
-          if (element[iteration] == values) {
+    if (fromIndex >= collection.length) {
+      return false;
+    } else {
+      for (let element of collection) {
+        if (typeof element == "object" && !Array.isArray(element)) {
+          let objectKeys = Object.keys(element);
+          for (let iteration of objectKeys) {
+            if (element[iteration] == values) {
+              return true;
+            }
+          }
+        } else {
+          if (element == values) {
             return true;
           }
-        }
-      } else {
-        if (element == values) {
-          return true;
         }
       }
     }
@@ -40,8 +44,6 @@ function includes(collection, values, fromIndex) {
     let objectLength = object.length;
 
     fromIndex < 0 ? (fromIndex = objectLength + fromIndex) : 0;
-
-    console.log(object, objectLength, fromIndex);
 
     while (fromIndex < objectLength) {
       if (collection[object[fromIndex]] == values) {

@@ -24,7 +24,11 @@ function get(Obj, path, defaultValue) {
     }
 
     for (let newPathValue of newPath) {
-      Obj = Obj[newPathValue];
+      try {
+        Obj = Obj[newPathValue];
+      } catch (e) {
+        return undefined;
+      }
       if (Obj === undefined || Obj === null) {
         Obj = defaultValue;
       }

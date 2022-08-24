@@ -22,13 +22,14 @@ function indexof(array, values, fromIndex) {
 
   fromIndex != undefined || fromIndex != null ? 0 : (fromIndex = 0);
 
-  console.table(fromIndex, values);
-
   let arrayLength = array.length;
 
   if (Array.isArray(array)) {
     while (fromIndex < arrayLength) {
-      array[fromIndex] == values ? (indexOfElement = fromIndex) : 0;
+      if (array[fromIndex] == values) {
+        indexOfElement = fromIndex;
+        break;
+      }
       ++fromIndex;
     }
     return indexOfElement;

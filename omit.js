@@ -15,11 +15,18 @@ import { makechain } from "./makechain.js";
 
 function omit(Obj, ...keys) {
   if (typeof Obj === "object") {
-    let newObject = Obj;
-    for (const arrayKeys of keys) {
-      delete newObject[arrayKeys];
+    let newObject = { ...Obj };
+    try {
+      for (const arrayKeys of keys) {
+        for (const innerArrayKeys of arrayKeys) {
+          console.log(innerArrayKeys);
+          delete newObject[innerArrayKeys];
+        }
+      }
+      return newObject;
+    } catch (e) {
+      return Obj;
     }
-    return newObject;
   } else {
     console.error("Needs object arguments");
   }

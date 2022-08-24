@@ -25,7 +25,6 @@ function groupby(collection, property) {
     for (let element of Object.values(collection)) {
       if (typeof property == "function") {
         newItem = property(element);
-        console.log("newItem");
       } else if (
         typeof property == "string" &&
         typeof collection[0] == "object"

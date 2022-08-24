@@ -13,17 +13,17 @@
 import { makechain } from "./makechain.js";
 
 function compact(array) {
-  if (Array.isArray(array)) {
-    let resultArray = [];
+  let resultArray = [];
 
+  if (Array.isArray(array)) {
     for (const falseValues of array) {
       falseValues ? resultArray.push(falseValues) : 0;
     }
-
-    return resultArray;
   } else {
     console.error("Requires Array as an Argument");
   }
+
+  return resultArray;
 }
 
 makechain.prototype.compact = function () {

@@ -21,10 +21,10 @@ function difference(array, exclude) {
     for (const arrayValue of array) {
       exclude.includes(arrayValue) ? 0 : resultArray.push(arrayValue);
     }
-
     return resultArray;
   } else {
     console.error("Requires Array and Values as An Array Argument");
+    return array;
   }
 }
 

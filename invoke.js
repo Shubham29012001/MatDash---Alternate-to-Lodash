@@ -19,11 +19,11 @@ function invoke(sourceObj, path, ...argv) {
     if (typeof path === "object") {
       var newPath = path;
     } else {
-      var newPath = path.replace(/\[/g, ".").replace(/\]/g, ".").split(".");
+      var newPath = path.replace(/\[/g, ".").replace(/\]/g, ".").split("."); // a[0].b.c a 0 b c
       newPath = newPath.filter((value) => value);
     }
     var callFunction = newPath.slice(-1);
-
+    
     for (let newValueOfPath of newPath) {
       if (newValueOfPath == callFunction) {
         sourceObj = sourceObj[newValueOfPath](...argv);
