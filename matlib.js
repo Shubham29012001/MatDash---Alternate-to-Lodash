@@ -16,6 +16,10 @@ import groupby from "./groupby.js";
 
 import newChain, { makechain } from "./makechain.js";
 
+var chain = function (x) {
+  return (chain = new makechain(x));
+};
+
 const _ = {
   compact: compact,
   difference: difference,
@@ -32,6 +36,7 @@ const _ = {
   some: some,
   partition: partition,
   groupby: groupby,
+  chain: chain,
 };
 
 export default _;

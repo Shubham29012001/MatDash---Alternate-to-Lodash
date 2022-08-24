@@ -1,15 +1,9 @@
 import _ from "./matlib.js";
 import newChain, { makechain } from "./makechain.js";
 
-var libraryName, libraryFunction;
-
-var chain = function (x) {
-  return (chain = new makechain(x));
-};
+var libraryFunction;
 
 window._ = _;
-
-window.chain = chain;
 
 // console.log(chain(a).compact().difference([2]));
 
