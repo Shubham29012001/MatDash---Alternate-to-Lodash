@@ -33,7 +33,7 @@ function omit(Obj, ...keys) {
 }
 
 makechain.prototype.omit = function (...keys) {
-  this.value = _.omit(this.value, ...keys);
+  this.value = omit(this.value, ...keys);
   return this;
 };
 

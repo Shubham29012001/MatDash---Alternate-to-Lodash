@@ -58,7 +58,7 @@ function groupby(collection, property) {
 }
 
 makechain.prototype.some = function (property) {
-  this.value = _.some(this.value, property);
+  this.value = some(this.value, property);
   return this;
 };
 

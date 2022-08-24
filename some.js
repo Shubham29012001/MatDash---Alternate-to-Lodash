@@ -97,7 +97,7 @@ function some(collection, functionInvoked) {
 }
 
 makechain.prototype.some = function (functionInvoked) {
-  this.value = _.some(this.value, functionInvoked);
+  this.value = some(this.value, functionInvoked);
   return this;
 };
 

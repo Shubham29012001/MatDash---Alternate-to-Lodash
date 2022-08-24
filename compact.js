@@ -27,7 +27,7 @@ function compact(array) {
 }
 
 makechain.prototype.compact = function () {
-  this.value = _.compact(this.value);
+  this.value = compact(this.value);
   return this;
 };
 

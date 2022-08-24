@@ -46,7 +46,7 @@ function replaceValues(values, newValues) {
 }
 
 makechain.prototype.merge = function (otherObject) {
-  this.value = _.merge(this.value, otherObject);
+  this.value = merge(this.value, otherObject);
   return this;
 };
 

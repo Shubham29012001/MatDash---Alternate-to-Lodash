@@ -23,7 +23,7 @@ function invoke(sourceObj, path, ...argv) {
       newPath = newPath.filter((value) => value);
     }
     var callFunction = newPath.slice(-1);
-    
+
     for (let newValueOfPath of newPath) {
       if (newValueOfPath == callFunction) {
         sourceObj = sourceObj[newValueOfPath](...argv);
@@ -39,7 +39,7 @@ function invoke(sourceObj, path, ...argv) {
 }
 
 makechain.prototype.invoke = function (path, ...argv) {
-  this.value = _.invoke(this.value, path, ...argv);
+  this.value = invoke(this.value, path, ...argv);
   return this;
 };
 

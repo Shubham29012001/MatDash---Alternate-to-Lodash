@@ -63,7 +63,7 @@ function includes(collection, values, fromIndex) {
 }
 
 makechain.prototype.includes = function (values, fromIndex) {
-  this.value = _.includes(this.value, values, fromIndex);
+  this.value = includes(this.value, values, fromIndex);
   return this;
 };
 

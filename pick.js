@@ -30,7 +30,7 @@ function pick(Obj, ...keys) {
 }
 
 makechain.prototype.pick = function (...keys) {
-  this.value = _.pick(this.value, ...keys);
+  this.value = pick(this.value, ...keys);
   return this;
 };
 

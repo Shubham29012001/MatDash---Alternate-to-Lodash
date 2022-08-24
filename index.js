@@ -1,8 +1,27 @@
 import _ from "./matlib.js";
+import newChain, { makechain } from "./makechain.js";
 
-let arrayExample = [1, 2, 3, 4, NaN, false, 0, 100, -9];
+var libraryName, libraryFunction;
+
+var chain = function (x) {
+  return (chain = new makechain(x));
+};
 
 window._ = _;
+
+window.chain = chain;
+
+// console.log(chain(a).compact().difference([2]));
+
+window.getInputfromConsole = function (libraryName) {
+  libraryFunction = libraryName;
+  console.log("Library Function Name Set");
+
+  if (libraryFunction) {
+    window[libraryFunction] = _;
+    delete window._;
+  }
+};
 
 // console.log(_.compact([0, 1, false, 2, "", 3]));
 
@@ -15,7 +34,7 @@ window._ = _;
 
 // console.log(_.without([2, 1, 2, 3], 1, 2));
 
-console.log(_.pick({ a: 1, b: "2", c: 3 }, ["a", "d"]));
+// console.log(_.pick({ a: 1, b: "2", c: 3 }, ["a", "d"]));
 
 // console.log(_.omit({ a: 1, b: "2", c: 3 }, "a", "c"));
 

@@ -49,7 +49,7 @@ function findlast(collection, functionInvoked) {
 }
 
 makechain.prototype.findlast = function (functionInvoked) {
-  this.value = _.findlast(this.value, functionInvoked);
+  this.value = findlast(this.value, functionInvoked);
   return this;
 };
 

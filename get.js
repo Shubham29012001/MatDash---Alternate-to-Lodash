@@ -40,7 +40,7 @@ function get(Obj, path, defaultValue) {
 }
 
 makechain.prototype.get = function (path, defaultValue) {
-  this.value = _.get(this.value, path, defaultValue);
+  this.value = get(this.value, path, defaultValue);
   return this;
 };
 

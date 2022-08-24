@@ -26,7 +26,7 @@ function union(firstArgument, secondArgument) {
 }
 
 makechain.prototype.union = function () {
-  this.value = _.union(this.value);
+  this.value = union(this.value);
   return this;
 };
 

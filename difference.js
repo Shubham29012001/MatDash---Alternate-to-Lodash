@@ -29,7 +29,7 @@ function difference(array, exclude) {
 }
 
 makechain.prototype.difference = function (values) {
-  this.value = _.difference(this.value, values);
+  this.value = difference(this.value, values);
   return this;
 };
 

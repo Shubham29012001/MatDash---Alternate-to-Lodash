@@ -40,7 +40,7 @@ function indexof(array, values, fromIndex) {
 }
 
 makechain.prototype.indexof = function (values, fromIndex) {
-  this.value = _.indexof(this.value, values, fromIndex);
+  this.value = indexof(this.value, values, fromIndex);
   return this;
 };
 

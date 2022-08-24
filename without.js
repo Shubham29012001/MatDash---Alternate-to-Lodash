@@ -27,7 +27,7 @@ function without(array, ...exclude) {
 }
 
 makechain.prototype.without = function (...exclude) {
-  this.value = _.without(this.value, ...exclude);
+  this.value = without(this.value, ...exclude);
   return this;
 };
 
