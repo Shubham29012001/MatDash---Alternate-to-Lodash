@@ -1,3 +1,11 @@
+import { makechain } from './makechain.js';
+import _ from './matlib.js';
+
+let truthyValues = [];
+let falsyValues = [];
+
+let result = [];
+
 /**
  * The partition function will accept a collection parameter and predicate,
  * returns the array of group elements for truthy and falsy values
@@ -8,33 +16,19 @@
  * @param {Predicate} function invoked for per iteration
  * @returns {Array} Returns the array of group elements for truthy and falsy values
  *
- * partition([
-  { user: "barney", active: true },
-  { user: "fred", active: false },
-], Boolean)
- * // => true
+ * partition([{ user: "barney", active: true }, { user: "fred", active: false }], function(o) { return o.active; })
+ * // => objects for [['fred'], ['barney', 'pebbles']]
  */
-
-import { makechain } from "./makechain.js";
-import _ from "./matlib.js";
-
-let truthyValues = [];
-let falsyValues = [];
-
-let result = [];
 
 function arrayPartition(collection, functionInvoked) {
   const arrayLength = collection == null ? 0 : collection.length;
 
-  if (typeof functionInvoked == "function") {
+  if (typeof functionInvoked == 'function') {
     for (let index = 0; index < arrayLength; index++) {
-      if (functionInvoked(collection[index])) {
-        truthyValues.push(collection[index]);
-      } else {
-        falsyValues.push(collection[index]);
-      }
+      functionInvoked(collection[index])
+        ? truthyValues.push(collection[index])
+        : falsyValues.push(collection[index]);
     }
-  } else if (typeof functionInvoked == "string") {
   }
 
   result.push(truthyValues, falsyValues);
@@ -43,16 +37,14 @@ function arrayPartition(collection, functionInvoked) {
 }
 
 function objectPartition(collection, functionInvoked) {
-  if (typeof functionInvoked == "function") {
+  if (typeof functionInvoked == 'function') {
     let objectKeys = Object.keys(collection);
     for (let objectKey of objectKeys) {
-      if (functionInvoked(collection[objectKey])) {
-        truthyValues.push(collection[objectKey]);
-      } else {
-        falsyValues.push(collection[objectKey]);
-      }
+      functionInvoked(collection[objectKey])
+        ? truthyValues.push(collection[objectKey])
+        : falsyValues.push(collection[objectKey]);
     }
-  } else if (typeof functionInvoked == "string") {
+  } else if (typeof functionInvoked == 'string') {
     truthyValues = collection.filter(function (string) {
       if (string[functionInvoked]) {
         return collection;
@@ -64,7 +56,7 @@ function objectPartition(collection, functionInvoked) {
       }
     });
   } else if (
-    typeof functionInvoked == "object" &&
+    typeof functionInvoked == 'object' &&
     !Array.isArray(functionInvoked)
   ) {
     let objectKeys = Object.keys(functionInvoked);
@@ -85,7 +77,7 @@ function objectPartition(collection, functionInvoked) {
         : falsyValues.push(collectionElement);
     }
   } else if (
-    typeof functionInvoked == "object" &&
+    typeof functionInvoked == 'object' &&
     Array.isArray(functionInvoked)
   ) {
     const objectValueLength = functionInvoked.length;
@@ -97,7 +89,7 @@ function objectPartition(collection, functionInvoked) {
         newObject[functionInvoked[index]] = functionInvoked[nextIndex];
       }
 
-      return _.partition(collection, newObject);
+      return partition(collection, newObject);
     }
   }
   result.push(truthyValues, falsyValues);
@@ -106,7 +98,7 @@ function objectPartition(collection, functionInvoked) {
 
 function partition(collection, functionInvoked) {
   if (Array.isArray(collection)) {
-    if (typeof collection[0] != "object") {
+    if (typeof collection[0] != 'object') {
       return arrayPartition(collection, functionInvoked);
     } else {
       return objectPartition(collection, functionInvoked);

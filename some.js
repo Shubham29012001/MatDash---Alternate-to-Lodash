@@ -1,21 +1,19 @@
+import { makechain } from './makechain.js';
+
 /**
  * The some function will accept a collection parameter and predicate,
  * returns truthy if functionInvoked returns true for any element else returns false
  *
  * @since 0.1.0
  * @category Collection
- * @param {Array | Object} takes collection to inspect
+ * @param {Array | Object} collection takes collection to inspect
  * @param {Predicate} function invoked for per iteration
  * @returns {Booelean} Returns true if any element passes the predicate check else false
+ * @example
  *
- * some([
-  { user: "barney", active: true },
-  { user: "fred", active: false },
-], Boolean)
+ * some([null, 0, 'yes', false], Boolean);
  * // => true
  */
-
-import { makechain } from "./makechain.js";
 
 function arraySome(collection, functionInvoked) {
   const arrayLength = collection == null ? 0 : collection.length;
@@ -31,21 +29,21 @@ function arraySome(collection, functionInvoked) {
 }
 
 function objectSome(collection, functionInvoked) {
-  if (typeof functionInvoked == "function") {
+  if (typeof functionInvoked == 'function') {
     for (let objectKeys of Object.keys(collection)) {
       if (functionInvoked(collection[objectKeys], objectKeys, collection)) {
         return true;
         break;
       }
     }
-  } else if (typeof functionInvoked == "string") {
+  } else if (typeof functionInvoked == 'string') {
     for (let stringKey of collection) {
       if (stringKey[functionInvoked]) {
         return true;
       }
     }
   } else if (
-    typeof functionInvoked == "object" &&
+    typeof functionInvoked == 'object' &&
     !Array.isArray(functionInvoked)
   ) {
     for (let arrayCollection of collection) {
@@ -57,7 +55,7 @@ function objectSome(collection, functionInvoked) {
       }
     }
   } else if (
-    typeof functionInvoked == "object" &&
+    typeof functionInvoked == 'object' &&
     Array.isArray(functionInvoked)
   ) {
     const objectLength = functionInvoked.length;
@@ -85,7 +83,7 @@ function objectSome(collection, functionInvoked) {
 
 function some(collection, functionInvoked) {
   if (Array.isArray(collection)) {
-    if (typeof collection[0] != "object") {
+    if (typeof collection[0] != 'object') {
       return arraySome(collection, functionInvoked);
     } else {
       return objectSome(collection, functionInvoked);

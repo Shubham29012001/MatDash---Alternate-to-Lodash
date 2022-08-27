@@ -1,19 +1,20 @@
+import { makechain } from './makechain.js';
+
 /**
  * The indexof function will accept an array parameter and values for which index needs to be find,
- * returns the index of the value in the array
+ * returns the index of the value
  *
  * @since 0.1.0
  * @category Array
- * @param {Array} takes array parameter
- * @param {Number} value for which index needs to be find
- * @param {Number} optional the starting index for the search
- * @returns {Number} Returns the index of the value in the array else -1
+ * @param {Array} array takes array parameter
+ * @param {Number} number value for which index needs to be find
+ * @param {Number} [fromIndex] the starting index for the search
+ * @returns {Number} Returns the index of the value else -1
+ * @example
  *
- * indexof([1,2,0], [1,5,6])
- * // => [2,0]
+ * indexof([1, 2, 1, 2], 2);
+ * // => 1
  */
-
-import { makechain } from "./makechain.js";
 
 function indexof(array, values, fromIndex) {
   let indexOfElement = -1;
@@ -32,11 +33,10 @@ function indexof(array, values, fromIndex) {
       }
       ++fromIndex;
     }
-    return indexOfElement;
   } else {
-    console.error("Requires Array and Values as An Array Argument");
-    return indexOfElement;
+    console.error('Requires Array and Values as An Array Argument');
   }
+  return indexOfElement;
 }
 
 makechain.prototype.indexof = function (values, fromIndex) {

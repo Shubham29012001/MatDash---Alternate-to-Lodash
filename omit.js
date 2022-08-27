@@ -1,8 +1,10 @@
+import { makechain } from './makechain.js';
+
 /**
  * The omit function will accept an object parameter, returns a new object without given keys
  * @since 0.1.0
  * @category Object
- * @param {Object} takes object parameter
+ * @param {Object} object takes object parameter
  * @param {Keys} [values] keys to be exclude
  * @returns {Object} Returns a new object without keys
  * @example
@@ -11,15 +13,12 @@
  * // => {'b':2}
  */
 
-import { makechain } from "./makechain.js";
-
 function omit(Obj, ...keys) {
-  if (typeof Obj === "object") {
+  if (typeof Obj === 'object') {
     let newObject = { ...Obj };
     try {
       for (const arrayKeys of keys) {
         for (const innerArrayKeys of arrayKeys) {
-          console.log(innerArrayKeys);
           delete newObject[innerArrayKeys];
         }
       }
@@ -28,7 +27,7 @@ function omit(Obj, ...keys) {
       return Obj;
     }
   } else {
-    console.error("Needs object arguments");
+    console.error('Needs object arguments');
   }
 }
 

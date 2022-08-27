@@ -1,8 +1,10 @@
+import { makechain } from './makechain.js';
+
 /**
  * The merge function will accept objects parameter, returns the result of combined objects
  * @since 0.1.0
  * @category Object
- * @param {Object} takes object parameter
+ * @param {Object} object takes object parameter
  * @param {Array | String} [values] other object for merging
  * @returns {Object} Returns merged objects
  * @example
@@ -10,8 +12,6 @@
  * merge({'a': [{ 'b': 2 }, { 'd': 4 }]}, {'a': [{ 'c': 3 }, { 'e': 5 }]});
  * // => { 'a': [{ 'b': 2, 'c': 3 }, { 'd': 4, 'e': 5 }] }
  */
-
-import { makechain } from "./makechain.js";
 
 function merge(destinationObject, sourceObject) {
   for (let objectKey in sourceObject) {
@@ -34,9 +34,9 @@ function replaceValues(values, newValues) {
       return replaceValues(values[i], val);
     });
   } else if (
-    typeof values == "object" &&
+    typeof values == 'object' &&
     !Array.isArray(values) &&
-    typeof newValues == "object" &&
+    typeof newValues == 'object' &&
     !Array.isArray(newValues)
   ) {
     return merge(values, newValues);

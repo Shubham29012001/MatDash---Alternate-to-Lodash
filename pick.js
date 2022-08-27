@@ -1,3 +1,5 @@
+import { makechain } from './makechain.js';
+
 /**
  * The pick function will accept an object parameter, returns a new object of choosen keys
  * @since 0.1.0
@@ -11,10 +13,8 @@
  * // => {'a':1, 'c':3}
  */
 
-import { makechain } from "./makechain.js";
-
 function pick(Obj, ...keys) {
-  if (typeof Obj === "object") {
+  if (typeof Obj === 'object') {
     let newObject = {};
     for (const arrayKeys of keys) {
       for (const innerArrayKeys of arrayKeys) {
@@ -25,7 +25,7 @@ function pick(Obj, ...keys) {
     }
     return newObject;
   } else {
-    console.error("Needs object arguments");
+    console.error('Needs object arguments');
   }
 }
 

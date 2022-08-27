@@ -20,6 +20,7 @@ var chain = function (x) {
   return (chain = new makechain(x));
 };
 
+
 const _ = {
   compact: compact,
   difference: difference,

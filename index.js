@@ -1,5 +1,5 @@
-import _ from "./matlib.js";
-import newChain, { makechain } from "./makechain.js";
+import _ from './matlib.js';
+import newChain, { makechain } from './makechain.js';
 
 var libraryFunction;
 
@@ -9,7 +9,7 @@ window._ = _;
 
 window.getInputfromConsole = function (libraryName) {
   libraryFunction = libraryName;
-  console.log("Library Function Name Set");
+  console.log('Library Function Name Set');
 
   if (libraryFunction) {
     window[libraryFunction] = _;
@@ -17,12 +17,14 @@ window.getInputfromConsole = function (libraryName) {
   }
 };
 
-// console.log(_.compact([0, 1, false, 2, "", 3]));
+// [1, 2, 3].indexOf();
+
+// console.log(_.compact([0, 1, false, 2, '', 3]));
 
 // console.log(_.difference([2, 1], [2, 3]));
 
 // console.log(_.indexof([1, 2, 1, 2], 2));
-// console.log(_.indexof([1, 2, 1, 2], 2, 2));
+console.log(_.indexof([1, 2, 1, 2], 2, 2));
 
 // console.log(_.union([2], [1, 2]));
 
@@ -45,7 +47,7 @@ window.getInputfromConsole = function (libraryName) {
 //   )
 // );
 
-// console.log(_.get({ a: [{ b: { c: 3 } }] }, "a[0].b.c"));
+// console.log(_.get({ a: [{ b: { c: 3 } }] }, 'a[0].b.c'));
 
 // console.log(_.includes([1, 2, 3], 1, 2));
 

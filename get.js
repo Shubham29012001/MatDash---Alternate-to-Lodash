@@ -1,10 +1,12 @@
+import { makechain } from './makechain.js';
+
 /**
  * The get function will accept an object parameter, returns a new object of choosen keys
  * @since 0.1.0
  * @category Object
- * @param {Object} takes object parameter
+ * @param {Object} object takes object parameter
  * @param {Array | String} [values] path to be called
- * @param {Number} [value] default value to be return
+ * @param {Number} [default] default value to be return
  * @returns {*} Returns the resolved values
  * @example
  *
@@ -12,14 +14,18 @@
  * // => 3
  */
 
-import { makechain } from "./makechain.js";
-
 function get(Obj, path, defaultValue) {
-  if (typeof Obj === "object" && !Array.isArray(Obj)) {
-    if (typeof path === "object") {
+  /**
+   * Check if Obj is an object else console the error. Filter out the Path.
+   * Iterate through the Path and Call the inner Key with Path.
+   * If Obj is undefined or null, return the defaultValue set by user.
+   */
+
+  if (typeof Obj === 'object' && !Array.isArray(Obj)) {
+    if (typeof path === 'object') {
       var newPath = path;
     } else {
-      var newPath = path.replace(/\[/g, ".").replace(/\]/g, ".").split(".");
+      var newPath = path.replace(/\[/g, '.').replace(/\]/g, '.').split('.');
       newPath = newPath.filter((value) => value);
     }
 
@@ -35,7 +41,7 @@ function get(Obj, path, defaultValue) {
     }
     return Obj;
   } else {
-    console.error("Needs object arguments");
+    console.error('Needs object arguments');
   }
 }
 
