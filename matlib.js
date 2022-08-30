@@ -9,7 +9,7 @@ import invoke from "./invoke.js";
 import merge from "./merge.js";
 import indexof from "./indexof.js";
 import includes from "./includes.js";
-import findlast from "./findLast.js";
+import findlast from "./findlast.js";
 import some from "./some.js";
 import partition from "./partition.js";
 import groupby from "./groupby.js";
